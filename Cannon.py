@@ -14,7 +14,7 @@ from turtle import *
 from freegames import vector
 
 ball = vector(-200, -200)
-speed = vector(0, 0)
+speed = vector(100, 150)
 targets = []
 
 def tap(x, y):
@@ -54,7 +54,7 @@ def move():
         target.x -= 0.5
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.25
         ball.move(speed)
 
     dupe = targets.copy()
@@ -71,6 +71,7 @@ def move():
             return
 
     ontimer(move, 50)
+    
 
 setup(420, 420, 370, 0)
 hideturtle()
