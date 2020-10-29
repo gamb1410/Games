@@ -10,7 +10,7 @@ Exercises
 """
 
 from turtle import *
-from random import randrange
+from random import *
 from freegames import square, vector
 
 food = vector(0, 0)
@@ -48,11 +48,20 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, SnakeColor)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, FoodColor)
     update()
     ontimer(move, 100)
+
+# Función para generar colores Aleatorios
+def colorAleatorio():
+    ListaColores = ['Black','Green','Yellow','Blue','Magenta','Cyan'] # Banco de Colores
+    Posicion = randrange(0,5) # Se genera una posición aleatoria dentro del rango de la lista de colores
+    return ListaColores[Posicion] # Se regresa el color con la posición aleatoria
+
+SnakeColor = colorAleatorio() # Se genera el color de la serpient de manera aleatoria
+FoodColor = colorAleatorio() # Se genera el color de la comida de manera aleatoria
 
 setup(420, 420, 370, 0)
 hideturtle()
