@@ -33,9 +33,29 @@ def square(start, end):
 
     end_fill()
 
+"""Se define la funcion circulo, la cual recibe dos coordenada
+   para formar la figura de un circulo, siendo la distancia de
+   estos dos puntos el tamaño de la circunferencia del circulo
+"""
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    seccion = (end.x - start.x)/13 #Calcula el tamaño de las secciones
+    up()
+    goto(start.x, start.y)
+
+    #Se posiciona el cursor en la segunda coordenada
+    forward(end.x - start.x)
+    left(95) #Se ubica el diametro a la mitad del circulo
+    down()
+    begin_fill()
+
+    #Se dibujan las secciones 40 veces
+    for count in range(40):
+        forward(seccion)
+        left(9)
+
+    left(265) #Se regresa el cursor a su direccion original
+    end_fill()
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
